@@ -684,6 +684,7 @@ open class SideMenuController: UIViewController {
         switch position {
         case .above, .sideBySide:
             var baseFrame = CGRect(origin: view.frame.origin, size: targetSize ?? view.frame.size)
+            baseFrame.size.width = menuWidth
             if visibility {
                 baseFrame.origin.x = menuWidth - baseFrame.width
             } else {
