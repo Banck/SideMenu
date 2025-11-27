@@ -263,8 +263,11 @@ open class SideMenuController: UIViewController {
 
         UIApplication.shared.beginIgnoringInteractionEvents()
 
+        let sideMenuFrame = self.sideMenuFrame(visibility: reveal)
+        menuContainerView.frame.size = sideMenuFrame.size
+
         let animationClosure = {
-            self.menuContainerView.frame = self.sideMenuFrame(visibility: reveal)
+            self.menuContainerView.frame = sideMenuFrame
             self.contentContainerView.frame = self.contentFrame(visibility: reveal)
             if self.shouldShowShadowOnContent {
                 self.contentContainerOverlay?.alpha = reveal ? self.preferences.animation.shadowAlpha : 0
